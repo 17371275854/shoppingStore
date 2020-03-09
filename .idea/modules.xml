@@ -6,7 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/store-shop-basic/store-shop-basic.iml" filepath="$PROJECT_DIR$/store-shop-basic/store-shop-basic.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-cache/store-shop-cache.iml" filepath="$PROJECT_DIR$/store-shop-cache/store-shop-cache.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-basic/store-shop-common/store-shop-common.iml" filepath="$PROJECT_DIR$/store-shop-basic/store-shop-common/store-shop-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/store-shop-denpendencies/store-shop-denpendencies.iml" filepath="$PROJECT_DIR$/store-shop-denpendencies/store-shop-denpendencies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/store-shop-dependencies/store-shop-dependencies.iml" filepath="$PROJECT_DIR$/store-shop-dependencies/store-shop-dependencies.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-dependencies/store-shop-dependencies.iml" filepath="$PROJECT_DIR$/store-shop-dependencies/store-shop-dependencies.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-basic/store-shop-entity/store-shop-entity.iml" filepath="$PROJECT_DIR$/store-shop-basic/store-shop-entity/store-shop-entity.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-eureka-server/store-shop-eureka-server.iml" filepath="$PROJECT_DIR$/store-shop-eureka-server/store-shop-eureka-server.iml" />
