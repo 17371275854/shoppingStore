@@ -12,6 +12,8 @@
         <option value="$PROJECT_DIR$/store-shop-eureka-server/pom.xml" />
         <option value="$PROJECT_DIR$/store-shop-web/pom.xml" />
         <option value="$PROJECT_DIR$/store-shop-zuul/pom.xml" />
+        <option value="$PROJECT_DIR$/store-shop-dependencies/pom.xml" />
+        <option value="$PROJECT_DIR$/store-shop-denpendencies/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
