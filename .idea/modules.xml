@@ -5,12 +5,11 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/shoppingStore.iml" filepath="$PROJECT_DIR$/.idea/shoppingStore.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-basic/store-shop-basic.iml" filepath="$PROJECT_DIR$/store-shop-basic/store-shop-basic.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-cache/store-shop-cache.iml" filepath="$PROJECT_DIR$/store-shop-cache/store-shop-cache.iml" />
-      <module fileurl="file://$PROJECT_DIR$/store-shop-basic/store-shop-common/store-shop-common.iml" filepath="$PROJECT_DIR$/store-shop-basic/store-shop-common/store-shop-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-dependencies/store-shop-dependencies.iml" filepath="$PROJECT_DIR$/store-shop-dependencies/store-shop-dependencies.iml" />
-      <module fileurl="file://$PROJECT_DIR$/store-shop-basic/store-shop-entity/store-shop-entity.iml" filepath="$PROJECT_DIR$/store-shop-basic/store-shop-entity/store-shop-entity.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-eureka-server/store-shop-eureka-server.iml" filepath="$PROJECT_DIR$/store-shop-eureka-server/store-shop-eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-basic/store-shop-mapper/store-shop-mapper.iml" filepath="$PROJECT_DIR$/store-shop-basic/store-shop-mapper/store-shop-mapper.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-service/store-shop-service.iml" filepath="$PROJECT_DIR$/store-shop-service/store-shop-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/store-shop-service/store-shop-service-solr/store-shop-service-solr.iml" filepath="$PROJECT_DIR$/store-shop-service/store-shop-service-solr/store-shop-service-solr.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-web/store-shop-web.iml" filepath="$PROJECT_DIR$/store-shop-web/store-shop-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-zuul/store-shop-zuul.iml" filepath="$PROJECT_DIR$/store-shop-zuul/store-shop-zuul.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-basic/store-stop-common/store-stop-common.iml" filepath="$PROJECT_DIR$/store-shop-basic/store-stop-common/store-stop-common.iml" />
