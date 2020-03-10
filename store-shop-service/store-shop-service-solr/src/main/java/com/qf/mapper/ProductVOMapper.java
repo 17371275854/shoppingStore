@@ -1,8 +1,9 @@
 package com.qf.mapper;
 
 import com.qf.vo.ProductVO;
-import tk.mybatis.mapper.common.Mapper;
+import org.apache.ibatis.annotations.Param;
+import java.util.List;
 
-public interface ProductVOMapper  extends Mapper<ProductVO> {
-
+public interface ProductVOMapper{
+    List<ProductVO> selectAll(@Param("method") String method);
 }
