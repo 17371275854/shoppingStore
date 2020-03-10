@@ -18,16 +18,16 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="store-shop-basic" target="1.5" />
-      <module name="store-shop-cache" target="1.5" />
-      <module name="store-shop-common" target="1.5" />
-      <module name="store-shop-dependencies" target="1.8" />
-      <module name="store-shop-entity" target="1.5" />
-      <module name="store-shop-eureka-server" target="1.8" />
-      <module name="store-shop-mapper" target="1.5" />
-      <module name="store-shop-service" target="1.8" />
-      <module name="store-shop-web" target="1.8" />
-      <module name="store-shop-zuul" target="1.8" />
+      <module name="store-shop-basic" target="8" />
+      <module name="store-shop-cache" target="8" />
+      <module name="store-shop-common" target="8" />
+      <module name="store-shop-dependencies" target="8" />
+      <module name="store-shop-entity" target="8" />
+      <module name="store-shop-eureka-server" target="8" />
+      <module name="store-shop-mapper" target="8" />
+      <module name="store-shop-service" target="8" />
+      <module name="store-shop-web" target="8" />
+      <module name="store-shop-zuul" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
