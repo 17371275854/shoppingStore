@@ -14,7 +14,9 @@
         <module name="store-shop-mapper" />
         <module name="store-shop-denpendencies" />
         <module name="store-shop-dependencies" />
+        <module name="store-stop-entity" />
         <module name="store-shop-common" />
+        <module name="store-stop-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -28,6 +30,8 @@
       <module name="store-shop-service" target="1.8" />
       <module name="store-shop-web" target="1.8" />
       <module name="store-shop-zuul" target="1.8" />
+      <module name="store-stop-common" target="1.5" />
+      <module name="store-stop-entity" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
