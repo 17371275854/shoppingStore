@@ -2,9 +2,9 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/store-shop-dependencies" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/store-shop-dependencies" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/store-shop-dependencies" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/store-shop-eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/store-shop-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/store-shop-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/store-shop-zuul" charset="UTF-8" />
   </component>
 </project>

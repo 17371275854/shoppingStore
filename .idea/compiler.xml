@@ -14,7 +14,6 @@
         <module name="store-shop-mapper" />
         <module name="store-shop-denpendencies" />
         <module name="store-shop-dependencies" />
-        <module name="store-shop-service" />
         <module name="store-shop-common" />
       </profile>
     </annotationProcessing>
@@ -22,19 +21,20 @@
       <module name="store-shop-basic" target="1.5" />
       <module name="store-shop-cache" target="1.5" />
       <module name="store-shop-common" target="1.5" />
-      <module name="store-shop-dependencies" target="1.5" />
+      <module name="store-shop-dependencies" target="1.8" />
       <module name="store-shop-entity" target="1.5" />
-      <module name="store-shop-eureka-server" target="1.5" />
+      <module name="store-shop-eureka-server" target="1.8" />
       <module name="store-shop-mapper" target="1.5" />
-      <module name="store-shop-service" target="1.5" />
-      <module name="store-shop-web" target="1.5" />
-      <module name="store-shop-zuul" target="1.5" />
+      <module name="store-shop-service" target="1.8" />
+      <module name="store-shop-web" target="1.8" />
+      <module name="store-shop-zuul" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="store-shop-dependencies" options="-parameters" />
       <module name="store-shop-eureka-server" options="-parameters" />
+      <module name="store-shop-web" options="-parameters" />
       <module name="store-shop-zuul" options="-parameters" />
     </option>
   </component>
