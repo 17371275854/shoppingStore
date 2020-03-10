@@ -20,6 +20,8 @@
       <set>
         <option value="$PROJECT_DIR$/store-shop-basic/store-shop-common/pom.xml" />
         <option value="$PROJECT_DIR$/store-shop-basic/store-shop-entity/pom.xml" />
+        <option value="$PROJECT_DIR$/store-shop-web/store-shop-web-cj-solr/pom.xml" />
+        <option value="$PROJECT_DIR$/store-shop-web/store-shop-web-solr/pom.xml" />
       </set>
     </option>
   </component>
