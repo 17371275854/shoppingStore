@@ -6,13 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="store-shop-mapper" />
         <module name="store-shop-zuul" />
         <module name="store-shop-eureka-server" />
         <module name="store-shop-service-solr" />
         <module name="store-shop-cache" />
-        <module name="store-shop-mapper" />
-        <module name="store-shop-denpendencies" />
         <module name="store-shop-dependencies" />
+        <module name="store-shop-denpendencies" />
+        <module name="store-shop-web-tlj-solr" />
         <module name="store-stop-entity" />
         <module name="store-stop-common" />
       </profile>
@@ -29,6 +30,7 @@
       <module name="store-shop-service-solr" target="1.8" />
       <module name="store-shop-web" target="1.8" />
       <module name="store-shop-web-solr" target="1.8" />
+      <module name="store-shop-web-tlj-solr" target="1.8" />
       <module name="store-shop-zuul" target="1.8" />
       <module name="store-stop-common" target="1.5" />
       <module name="store-stop-entity" target="1.5" />
@@ -41,6 +43,7 @@
       <module name="store-shop-service-solr" options="-parameters" />
       <module name="store-shop-web" options="-parameters" />
       <module name="store-shop-web-solr" options="-parameters" />
+      <module name="store-shop-web-tlj-solr" options="-parameters" />
       <module name="store-shop-zuul" options="-parameters" />
     </option>
   </component>

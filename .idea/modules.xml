@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/store-shop-service/store-shop-service.iml" filepath="$PROJECT_DIR$/store-shop-service/store-shop-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-service/store-shop-service-solr/store-shop-service-solr.iml" filepath="$PROJECT_DIR$/store-shop-service/store-shop-service-solr/store-shop-service-solr.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-web/store-shop-web.iml" filepath="$PROJECT_DIR$/store-shop-web/store-shop-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/store-shop-web/store-shop-web-tlj-solr/store-shop-web-tlj-solr.iml" filepath="$PROJECT_DIR$/store-shop-web/store-shop-web-tlj-solr/store-shop-web-tlj-solr.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-zuul/store-shop-zuul.iml" filepath="$PROJECT_DIR$/store-shop-zuul/store-shop-zuul.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-zuul/store-shop-zuul.iml" filepath="$PROJECT_DIR$/store-shop-zuul/store-shop-zuul.iml" />
       <module fileurl="file://$PROJECT_DIR$/store-shop-basic/store-stop-common/store-stop-common.iml" filepath="$PROJECT_DIR$/store-shop-basic/store-stop-common/store-stop-common.iml" />
