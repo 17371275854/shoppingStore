@@ -6,17 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="store-shop-entity" />
         <module name="store-shop-zuul" />
-        <module name="store-shop-web" />
+        <module name="store-shop-mapper" />
         <module name="store-shop-eureka-server" />
         <module name="store-shop-service-solr" />
         <module name="store-shop-cache" />
-        <module name="store-shop-mapper" />
+        <module name="store-shop-web" />
         <module name="store-shop-denpendencies" />
         <module name="store-shop-dependencies" />
         <module name="store-stop-entity" />
-        <module name="store-shop-common" />
         <module name="store-stop-common" />
       </profile>
     </annotationProcessing>
