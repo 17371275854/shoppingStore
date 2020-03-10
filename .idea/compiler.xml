@@ -14,7 +14,6 @@
         <module name="store-shop-denpendencies" />
         <module name="store-shop-dependencies" />
         <module name="store-stop-entity" />
-        <module name="store-shop-web-solr" />
         <module name="store-stop-common" />
       </profile>
     </annotationProcessing>
