@@ -10,6 +10,7 @@
         <module name="store-shop-zuul" />
         <module name="store-shop-web" />
         <module name="store-shop-eureka-server" />
+        <module name="store-shop-service-solr" />
         <module name="store-shop-cache" />
         <module name="store-shop-mapper" />
         <module name="store-shop-denpendencies" />
@@ -28,6 +29,7 @@
       <module name="store-shop-eureka-server" target="1.8" />
       <module name="store-shop-mapper" target="1.5" />
       <module name="store-shop-service" target="1.8" />
+      <module name="store-shop-service-solr" target="1.8" />
       <module name="store-shop-web" target="1.8" />
       <module name="store-shop-zuul" target="1.8" />
       <module name="store-stop-common" target="1.5" />
@@ -38,6 +40,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="store-shop-dependencies" options="-parameters" />
       <module name="store-shop-eureka-server" options="-parameters" />
+      <module name="store-shop-service-solr" options="-parameters" />
       <module name="store-shop-web" options="-parameters" />
       <module name="store-shop-zuul" options="-parameters" />
     </option>
