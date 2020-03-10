@@ -14,6 +14,7 @@
         <module name="store-shop-denpendencies" />
         <module name="store-shop-dependencies" />
         <module name="store-stop-entity" />
+        <module name="store-shop-web-solr" />
         <module name="store-stop-common" />
       </profile>
     </annotationProcessing>
@@ -28,6 +29,7 @@
       <module name="store-shop-service" target="1.8" />
       <module name="store-shop-service-solr" target="1.8" />
       <module name="store-shop-web" target="1.8" />
+      <module name="store-shop-web-solr" target="1.8" />
       <module name="store-shop-zuul" target="1.8" />
       <module name="store-stop-common" target="1.5" />
       <module name="store-stop-entity" target="1.5" />
@@ -39,6 +41,7 @@
       <module name="store-shop-eureka-server" options="-parameters" />
       <module name="store-shop-service-solr" options="-parameters" />
       <module name="store-shop-web" options="-parameters" />
+      <module name="store-shop-web-solr" options="-parameters" />
       <module name="store-shop-zuul" options="-parameters" />
     </option>
   </component>

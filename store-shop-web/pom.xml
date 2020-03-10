@@ -6,6 +6,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>store-shop-web-solr</module>
+        <module>store-shop-web-solr</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
