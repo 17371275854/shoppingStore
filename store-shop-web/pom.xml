@@ -6,7 +6,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>store-shop-web-solr</module>
-        <module>store-shop-web-solr</module>
         <module>store-shop-web-tlj-solr</module>
     </modules>
     <parent>
