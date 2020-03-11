@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: store-shop-web-order
+
+  redis:
+    host: 120.26.130.33
+    port: 6379
+    client-name:
+    password:
+
+server:
+  port: 8085
