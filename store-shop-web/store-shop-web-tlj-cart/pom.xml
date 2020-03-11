@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.qf</groupId>
-    <artifactId>store-shop-service-tlj-solr</artifactId>
+    <artifactId>store-shop-web-tlj-cart</artifactId>
     <version>1.0.1-SNAPSHOT</version>
-    <name>store-shop-service-tlj-solr</name>
+    <name>store-shop-web-tlj-cart</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -21,27 +21,20 @@
     <dependencies>
 
         <dependency>
+            <groupId>com.qf</groupId>
+            <artifactId>store-stop-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-solr</artifactId>
-            <version>1.5.9.RELEASE</version>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
 
