@@ -5,3 +5,5 @@ eureka已使用端口8761 ——3/11
 store-shop-service-solr  port = 8763
 store-shop-web-solr  port = 8766
 
+tlj 购物侧已使用端口 6761、6762
+
