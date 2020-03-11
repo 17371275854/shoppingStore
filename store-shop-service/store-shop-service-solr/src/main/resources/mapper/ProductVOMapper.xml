@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.ProductVOMapper">
+    <select id="selectAll" resultType="com.qf.vo.ProductVO">
+    select a.pid, a.pname, a.sale_price, b.cname, a.total_sales, a.total_sales, a.appraisal
+    from t_product as a
+    left join t_product_type as b on a.pid = b.pid
+    left join t_product_brand as c on a.brand_id = c.bid;
+  </select>
+</mapper>
+<!--        private Long pid;-->
+<!--        private String pname;           //产品名称-->
+<!--        private BigDecimal salePrice;   //销售价格-->
+<!--        private String cname;           //类型名称-->
+<!--        private Long totalSales;        //总销量-->
+<!--        private Long appraisal;         //评价总数-->
