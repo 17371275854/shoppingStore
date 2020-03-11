@@ -16,6 +16,7 @@
     <modules>
         <module>store-shop-service-solr</module>
         <module>store-shop-service-tlj-solr</module>
+        <module>store-shop-service-order</module>
     </modules>
 
     <dependencies>
