@@ -3,19 +3,17 @@ package com.qf.controller;
 import com.qf.constant.CookieConstant;
 import com.qf.dto.ResultBean;
 import com.qf.service.ICartService;
+import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
-@RestController
+@Controller
 @RequestMapping("cart")
 public class CartController {
 
@@ -37,6 +35,7 @@ public class CartController {
      * @return
      */
     @RequestMapping("add/{productId}/{count}")
+    @ResponseBody
     public ResultBean addProduct(@CookieValue(name = CookieConstant.USER_CART,required = false)String uuid,
                            @PathVariable Long productId,
                            @PathVariable int count,
