@@ -7,6 +7,9 @@ spring:
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
+  data:
+    solr:
+      host: http://120.26.130.33:8983/solr/ik_core
 server:
   port: 8763
 
