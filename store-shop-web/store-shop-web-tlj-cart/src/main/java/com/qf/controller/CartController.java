@@ -1,6 +1,9 @@
 package com.qf.controller;
 
 import com.qf.constant.CookieConstant;
+import com.qf.dto.ResultBean;
+import com.qf.service.ICartService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +17,9 @@ import java.util.UUID;
 @Controller
 @RequestMapping("cart")
 public class CartController {
+
+    @Autowired
+    private ICartService cartService;
 
     /**
      * 添加商品到购物车
@@ -30,7 +36,7 @@ public class CartController {
      * @return
      */
     @RequestMapping("add/{productId}/{count}")
-    public void addProduct(@CookieValue(name = CookieConstant.USER_CART,required = false)String uuid,
+    public ResultBean addProduct(@CookieValue(name = CookieConstant.USER_CART,required = false)String uuid,
                            @PathVariable Long productId,
                            @PathVariable int count,
                            HttpServletRequest request,
@@ -46,6 +52,9 @@ public class CartController {
             cookie.setPath("/");
             response.addCookie(cookie);
         }
+        ResultBean resultBean = cartService.addProduct(uuid, productId, count);
+
+        return resultBean;
 
     }
 
