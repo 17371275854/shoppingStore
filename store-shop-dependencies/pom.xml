@@ -46,16 +46,6 @@
             </dependency>
             <dependency>
                 <groupId>com.qf</groupId>
-                <artifactId>store-shop-service</artifactId>
-                <version>${parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.qf</groupId>
-                <artifactId>store-shop-web</artifactId>
-                <version>${parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.qf</groupId>
                 <artifactId>store-shop-eureka-server</artifactId>
                 <version>${parent.version}</version>
             </dependency>
