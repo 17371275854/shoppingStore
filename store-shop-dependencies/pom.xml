@@ -2,12 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>2.2.5.RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
-
     </parent>
     <groupId>com.qf</groupId>
     <artifactId>store-shop-dependencies</artifactId>
@@ -26,12 +35,12 @@
         <dependencies>
             <dependency>
                 <groupId>com.qf</groupId>
-                <artifactId>store-shop-entity</artifactId>
+                <artifactId>store-stop-entity</artifactId>
                 <version>${parent.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.qf</groupId>
-                <artifactId>store-shop-common</artifactId>
+                <artifactId>store-stop-common</artifactId>
                 <version>${parent.version}</version>
             </dependency>
             <dependency>
@@ -42,16 +51,6 @@
             <dependency>
                 <groupId>com.qf</groupId>
                 <artifactId>store-shop-cache</artifactId>
-                <version>${parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.qf</groupId>
-                <artifactId>store-shop-service</artifactId>
-                <version>${parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.qf</groupId>
-                <artifactId>store-shop-web</artifactId>
                 <version>${parent.version}</version>
             </dependency>
             <dependency>
