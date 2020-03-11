@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: store-shop-web-solr
+
+server:
+  port: 8766
+
+eureka:
+  client:
+    serviceUrl:
+#      defaultZone: http://120.26.130.33:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
