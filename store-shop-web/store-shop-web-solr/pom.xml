@@ -11,5 +11,9 @@
 
     <artifactId>store-shop-web-solr</artifactId>
 
+    <dependencies>
 
+
+
+    </dependencies>
 </project>

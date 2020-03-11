@@ -1,14 +1,24 @@
 package com.qf.solr.controller;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
-@Controller
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
 @RequestMapping("/solr")
 public class SolrController {
 
-    @RequestMapping("/selectByKeyWord")
-    public void selectByKeyWord(String key_word) {
+    @Autowired
+    private RestTemplate restTemplate;
 
+    @RequestMapping("/selectByKeyWord")
+    public List selectByKeyWord(String key_word, Long page) {
+        String uri = String.format("http://STORE-SHOP-SERVICE-SOLR/solr?key_word=%s&page=%s", key_word, page);
+        ArrayList forObject = restTemplate.getForObject(uri, ArrayList.class);
+        return forObject;
     }
 }
