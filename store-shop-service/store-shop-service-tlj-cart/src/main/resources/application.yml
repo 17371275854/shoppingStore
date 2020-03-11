@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: store-shop-service-tlj-cart
+  redis:
+    host: 120.26.144.14
+    port: 6379
+    password: 123456
+
+server:
+  port: 6762
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

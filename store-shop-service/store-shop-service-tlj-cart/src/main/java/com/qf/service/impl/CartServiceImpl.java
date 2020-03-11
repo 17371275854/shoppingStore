@@ -10,12 +10,10 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Service
-@Component
 public class CartServiceImpl implements ICartService {
 
     @Autowired
@@ -34,6 +32,7 @@ public class CartServiceImpl implements ICartService {
      * @param count
      * @return
      */
+    @SuppressWarnings("Duplicates")//压制重复代码
     @Override
     public ResultBean addProduct(String uuid, Long productId, int count) {
 
@@ -57,9 +56,29 @@ public class CartServiceImpl implements ICartService {
             return ResultBean.success(cartList,"添加成功");
         }
         //第二和第三种情况
+        //拿到购物车集合
         cartList = (List<CartBean>) o;
-
-        return null;
+        //当前用户有购物车且购物车中有该商品
+        for (CartBean cartBean : cartList) {
+            if (cartBean.getProductId().longValue() == productId.longValue()) {
+                //增加商品数量
+                cartBean.setCount(cartBean.getCount()+count);
+                //更新添加商品的时间
+                cartBean.setTime(new Date());
+                //将更新后的购物车放回Redis中
+                redisTemplate.opsForValue().set(redisCartKey,cartList);
+                return ResultBean.success(cartList,"添加成功");
+            }
+        }
+        //当前用户有购物车但是购物车中没有当前商品
+        CartBean cartBean = new CartBean();
+        cartBean.setProductId(productId);
+        cartBean.setCount(count);
+        cartBean.setTime(new Date());
+        cartList.add(cartBean);
+        //将购物车重新放回Redis中
+        redisTemplate.opsForValue().set(redisCartKey,cartList);
+        return ResultBean.success(cartList,"添加成功");
     }
 
 }
