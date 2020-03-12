@@ -1,4 +1,4 @@
-package com.sample;
+package com.qf.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
