@@ -1,8 +1,11 @@
 package com.qf.bean;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.commons.lang.RandomStringUtils;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -12,7 +15,9 @@ import java.util.Date;
  * Author chenjia
  */
 @Data
-public class OrderMaster {
+@NoArgsConstructor
+@AllArgsConstructor
+public class OrderMaster implements Serializable {
 
   private String orderId;
   private String buyerName;
