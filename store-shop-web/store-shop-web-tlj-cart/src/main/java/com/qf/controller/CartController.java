@@ -42,6 +42,8 @@ public class CartController {
                            HttpServletRequest request,
                            HttpServletResponse response){
 
+        //TODO  登录状态下
+
         //======================未登录状态下的购物车========================
         //把商品添加到购物车，这个购物车放在Redis中
         if (uuid == null || "".equals(uuid)) {
@@ -56,6 +58,36 @@ public class CartController {
 
         return resultBean;
 
+    }
+
+    /**
+     * 清空购物车
+     * @param uuid
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping("del")
+    @ResponseBody
+    public ResultBean delAllCart(@CookieValue(name = CookieConstant.USER_CART,required = false)String uuid,
+                                 HttpServletRequest request,
+                                 HttpServletResponse response){
+
+        //TODO  登录状态下
+
+        //============未登录状态==============
+        if (uuid != null && !"".equals(uuid)) {
+            //删除Cookie中的uuid
+            Cookie cookie = new Cookie(CookieConstant.USER_CART,"");
+            cookie.setPath("/");
+            cookie.setMaxAge(0);
+            response.addCookie(cookie);
+
+            //删除Redis中存放的购物车
+            return cartService.delAllCart(uuid);
+        }
+
+        return ResultBean.error();
     }
 
 }

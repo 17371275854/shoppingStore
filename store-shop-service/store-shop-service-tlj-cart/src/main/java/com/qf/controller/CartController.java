@@ -18,4 +18,10 @@ public class CartController {
         ResultBean resultBean = cartService.addProduct(uuid, productId, count);
         return resultBean;
     }
+
+    @RequestMapping("del")
+    public ResultBean delAllCart(String uuid){
+        ResultBean resultBean = cartService.delAllCart(uuid);
+        return resultBean;
+    }
 }

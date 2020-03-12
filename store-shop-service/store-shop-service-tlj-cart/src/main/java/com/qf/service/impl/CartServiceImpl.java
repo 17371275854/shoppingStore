@@ -81,4 +81,13 @@ public class CartServiceImpl implements ICartService {
         return ResultBean.success(cartList,"添加成功");
     }
 
+    @Override
+    public ResultBean delAllCart(String uuid) {
+
+        //删除Redis中的购物车
+        String redisKey = StringUtil.getRedisKey(RedisConstant.USER_CART, uuid);
+        redisTemplate.delete(redisKey);
+        return ResultBean.success("清空购物车成功");
+    }
+
 }

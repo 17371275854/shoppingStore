@@ -20,4 +20,11 @@ public class CartService {
         return restTemplate.getForObject(url,ResultBean.class);
     }
 
+    public ResultBean delAllCart(String uuid) {
+        //调用服务的提供者并获得结果并返回
+
+        //服务的提供者返回的是一个ResultBean
+        String url = "http://STORE-SHOP-SERVICE-TLJ-CART/del?uuid="+uuid;
+        return restTemplate.getForObject(url,ResultBean.class);
+    }
 }
