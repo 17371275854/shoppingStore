@@ -2,6 +2,7 @@ package com.qf.controller;
 
 import com.qf.constant.CookieConstant;
 import com.qf.dto.ResultBean;
+import com.qf.service.CartService;
 import com.qf.service.ICartService;
 import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
 @Controller
-@RequestMapping("cart")
 public class CartController {
 
     @Autowired(required = false)
-    private ICartService cartService;
+    private CartService cartService;
 
     /**
      * 添加商品到购物车
