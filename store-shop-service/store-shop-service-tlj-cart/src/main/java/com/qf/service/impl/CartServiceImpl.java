@@ -7,9 +7,9 @@ import com.qf.service.ICartService;
 import com.qf.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -40,9 +40,7 @@ public class CartServiceImpl implements ICartService {
         String redisCartKey = StringUtil.getRedisKey(RedisConstant.USER_CART,uuid);
         //获取用户购物车
         Object o = redisTemplate.opsForValue().get(redisCartKey);
-        //创建购物车集合
-        List<CartBean> cartList = null;
-        if (o == null){
+          if (o == null){
             //第一种情况
             //将商品信息进行封装
             CartBean cartBean = new CartBean();
@@ -50,6 +48,8 @@ public class CartServiceImpl implements ICartService {
             cartBean.setCount(count);
             cartBean.setTime(new Date());
 
+            //创建购物车集合
+            List<CartBean> cartList = new ArrayList<>();
             cartList.add(cartBean);
             //将购物车存放到Redis中
             redisTemplate.opsForValue().set(redisCartKey,cartList);
@@ -57,7 +57,7 @@ public class CartServiceImpl implements ICartService {
         }
         //第二和第三种情况
         //拿到购物车集合
-        cartList = (List<CartBean>) o;
+        List<CartBean> cartList = (List<CartBean>) o;
         //当前用户有购物车且购物车中有该商品
         for (CartBean cartBean : cartList) {
             if (cartBean.getProductId().longValue() == productId.longValue()) {
@@ -79,6 +79,15 @@ public class CartServiceImpl implements ICartService {
         //将购物车重新放回Redis中
         redisTemplate.opsForValue().set(redisCartKey,cartList);
         return ResultBean.success(cartList,"添加成功");
+    }
+
+    @Override
+    public ResultBean delAllCart(String uuid) {
+
+        //删除Redis中的购物车
+        String redisKey = StringUtil.getRedisKey(RedisConstant.USER_CART, uuid);
+        redisTemplate.delete(redisKey);
+        return ResultBean.success("清空购物车成功");
     }
 
 }
