@@ -19,8 +19,8 @@ public class OrderMaster {
   private String buyerPhone;
   private String buyerAddress;
   private BigDecimal orderAmount;  //订单总金额
-  private Short orderStatus;
-  private Short payStatus;
+  private Short orderStatus;       //订单状态, 默认0 新下单
+  private Short payStatus;         //支付状态, 默认0 未支付
   private java.sql.Timestamp createTime;
   private java.sql.Timestamp updateTime;
   {
