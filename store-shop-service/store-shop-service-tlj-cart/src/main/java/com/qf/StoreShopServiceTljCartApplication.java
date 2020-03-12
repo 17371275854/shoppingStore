@@ -8,8 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @SpringBootApplication
-@EnableDiscoveryClient
-//@ComponentScan(value = "com.qf.service.impl")
+@EnableEurekaClient
 public class StoreShopServiceTljCartApplication {
 
     public static void main(String[] args) {
