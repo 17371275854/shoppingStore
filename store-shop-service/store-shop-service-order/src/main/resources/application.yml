@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: store-shop-service-order
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://120.26.130.33:3306/qf-solr
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+
+server:
+  port: 8087
+
+eureka:
+  client:
+    serviceUrl:
+      #      defaultZone: http://120.26.130.33:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
+mybatis:
+  # 3.1 扫描映射文件.
+  #  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    #3.2 配置驼峰映射.
+    map-underscore-to-camel-case: true
+  # 3.3 配置别名.
+  type-aliases-package: com.qf.bean
