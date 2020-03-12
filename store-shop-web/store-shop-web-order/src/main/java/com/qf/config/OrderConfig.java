@@ -12,8 +12,13 @@ public class OrderConfig {
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }
-//    @Bean
+
+    //    @Bean
 //    public RedisTemplate getRedisTemplate() {
 //        return new RedisTemplate();
+//    }
+//    @Bean
+//    public TopicExchange getExchange() {
+//        return new TopicExchange("order_topic_exchage", true, false);
 //    }
 }

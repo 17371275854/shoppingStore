@@ -16,4 +16,16 @@ public class DataCarrier implements Serializable {
         this.message = message;
         this.data = data;
     }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public Object getData() {
+        return data;
+    }
 }
