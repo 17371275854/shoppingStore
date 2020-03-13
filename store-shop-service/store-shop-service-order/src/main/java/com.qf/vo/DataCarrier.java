@@ -1,4 +1,4 @@
-package com.qf.util;
+package com.qf.vo;
 
 
 import java.io.Serializable;
