@@ -1,6 +1,5 @@
 package com.qf.controller;
 
-import com.google.gson.Gson;
 import com.qf.util.DataCarrier;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,8 +50,6 @@ public class OrderController {
         m.put("my2", "我是陈佳");
         JSONArray jsonArray = new JSONArray();
 //        restTemplate.
-        Gson gson = new Gson();
-        String s = gson.toJson(m);
         HttpHeaders httpHeaders = new HttpHeaders();
         MediaType mediaType = MediaType.parseMediaType("application/json;charset=UTF-8");
         httpHeaders.setContentType(mediaType);
