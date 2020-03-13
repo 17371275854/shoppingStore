@@ -86,5 +86,18 @@ public class ResultBean implements Serializable {
 
     }
 
+    /**
+     * 返回失败的结果
+     * @param message 具体的信息
+     * @return
+     */
+    public static ResultBean error(String message){
+        ResultBean resultBean = new ResultBean();
+        resultBean.setErrno(1);
+        resultBean.setData(null);
+        resultBean.setMessage(message);
+        return  resultBean;
+
+    }
 
 }

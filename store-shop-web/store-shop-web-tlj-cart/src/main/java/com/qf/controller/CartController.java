@@ -87,7 +87,7 @@ public class CartController {
             return cartService.delAllCart(uuid);
         }
 
-        return ResultBean.error();
+        return ResultBean.error("当前用户没有购物车");
     }
 
 }
