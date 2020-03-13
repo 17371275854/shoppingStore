@@ -8,6 +8,7 @@ import com.qf.mapper.OrderMasterMapper;
 import com.qf.mapper.ProductMapper;
 import com.qf.vo.DataCarrier;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
@@ -21,6 +22,8 @@ import java.util.Set;
 public class OrderService {
 //    @Autowired
 //    private RabbitTemplate rabbitTemplate;
+//    @Autowired
+//    private RedisTemplate redisTemplate;
     @Autowired
     private ProductMapper productMapper;
     @Autowired
@@ -36,6 +39,7 @@ public class OrderService {
         Set<Long> pids = products.keySet();
         criteria.andIn("pid", pids);
         List<TProduct> tProducts = productMapper.selectByExample(example);
+//        redisTemplate.opsForValue().get("s");
         /**添加订单**/
         OrderMaster orderMaster = new OrderMaster();
         int i = insertOrderMaster(orderInfo, products, tProducts, orderMaster);
