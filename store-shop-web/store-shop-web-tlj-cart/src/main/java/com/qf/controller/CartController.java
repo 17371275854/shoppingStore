@@ -15,10 +15,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
 @Controller
+@RequestMapping("cart")
 public class CartController {
 
     @Autowired(required = false)
     private CartService cartService;
+
+    @RequestMapping("/shopcart")
+    public String shopcart(){
+        System.out.println("!!!");
+        return "shopcart";
+    }
 
     /**
      * 添加商品到购物车
@@ -85,6 +92,22 @@ public class CartController {
 
             //删除Redis中存放的购物车
             return cartService.delAllCart(uuid);
+        }
+
+        return ResultBean.error("当前用户没有购物车");
+    }
+
+    @RequestMapping("query")
+    @ResponseBody
+    public ResultBean queryCart(@CookieValue(name = CookieConstant.USER_CART,required = false)String uuid,
+                                HttpServletRequest request,
+                                HttpServletResponse response){
+
+        //TODO  登录状态下
+
+        //============未登录状态==============
+        if (uuid != null && !"".equals(uuid)){
+            
         }
 
         return ResultBean.error("当前用户没有购物车");

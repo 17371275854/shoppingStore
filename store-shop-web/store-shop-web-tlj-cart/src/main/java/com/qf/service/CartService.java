@@ -16,7 +16,7 @@ public class CartService {
         //调用服务的提供者并获得结果并返回
 
         //服务的提供者返回的是一个ResultBean
-        String url = "http://STORE-SHOP-SERVICE-TLJ-CART/add?uuid="+uuid+"&productId="+productId+"&count="+count;
+        String url = "http://STORE-SHOP-SERVICE-TLJ-CART/cart/add?uuid="+uuid+"&productId="+productId+"&count="+count;
         return restTemplate.getForObject(url,ResultBean.class);
     }
 
@@ -24,7 +24,7 @@ public class CartService {
         //调用服务的提供者并获得结果并返回
 
         //服务的提供者返回的是一个ResultBean
-        String url = "http://STORE-SHOP-SERVICE-TLJ-CART/del?uuid="+uuid;
+        String url = "http://STORE-SHOP-SERVICE-TLJ-CART/cart/del?uuid="+uuid;
         return restTemplate.getForObject(url,ResultBean.class);
     }
 }
