@@ -1,5 +1,6 @@
 package com.qf.service;
 
+import com.qf.bean.TProduct;
 import com.qf.constant.CookieConstant;
 import com.qf.dto.ResultBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,13 @@ public class CartService {
         //服务的提供者返回的是一个ResultBean
         String url = "http://STORE-SHOP-SERVICE-TLJ-CART/cart/del?uuid="+uuid;
         return restTemplate.getForObject(url,ResultBean.class);
+    }
+
+    public TProduct queryProduct(String uuid) {
+        //调用服务的提供者并获得结果并返回
+
+        //服务的提供者返回的是一个ResultBean
+        String url = "http://STORE-SHOP-SERVICE-TLJ-CART/cart/query?uuid="+uuid;
+        return restTemplate.getForObject(url,TProduct.class);
     }
 }

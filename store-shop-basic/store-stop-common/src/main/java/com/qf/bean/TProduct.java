@@ -4,12 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TProduct {
+public class TProduct implements Serializable {
 
   private Long pid;
   private String pname;
@@ -26,5 +27,6 @@ public class TProduct {
   private Long totalSales;
   private Long appraisal;
   private Long brandId;
+  private Long stock;
 
 }

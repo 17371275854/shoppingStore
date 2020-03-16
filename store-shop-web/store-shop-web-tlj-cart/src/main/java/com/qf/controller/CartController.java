@@ -107,7 +107,7 @@ public class CartController {
 
         //============未登录状态==============
         if (uuid != null && !"".equals(uuid)){
-            
+            cartService.queryProduct(uuid);
         }
 
         return ResultBean.error("当前用户没有购物车");
