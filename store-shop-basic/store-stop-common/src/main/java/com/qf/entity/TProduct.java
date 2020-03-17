@@ -1,4 +1,4 @@
-package com.qf.bean;
+package com.qf.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,9 +24,6 @@ public class TProduct implements Serializable {
   private java.util.Date  updateTime;
   private Long createUser;
   private Long updateUser;
-  private Long totalSales;
-  private Long appraisal;
-  private Long brandId;
-  private Long stock;
+  private int count;
 
 }

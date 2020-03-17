@@ -2,6 +2,7 @@ package com.qf.controller;
 
 import com.qf.constant.CookieConstant;
 import com.qf.dto.ResultBean;
+import com.qf.entity.TUser;
 import com.qf.service.CartService;
 import com.qf.service.ICartService;
 import jdk.nashorn.internal.ir.annotations.Reference;
@@ -49,7 +50,14 @@ public class CartController {
                            HttpServletRequest request,
                            HttpServletResponse response){
 
-        //TODO  登录状态下
+        Object o = request.getAttribute("user");
+        if(o!=null){
+            //================已登录状态下的购物车======================= redis:    user:cart:userId
+            TUser user = (TUser) o;
+            Long userId = user.getId();
+            return cartService.addProduct(userId.toString(),productId,count);
+
+        }
 
         //======================未登录状态下的购物车========================
         //把商品添加到购物车，这个购物车放在Redis中
@@ -80,7 +88,14 @@ public class CartController {
                                  HttpServletRequest request,
                                  HttpServletResponse response){
 
-        //TODO  登录状态下
+        Object o = request.getAttribute("user");
+        if(o!=null){
+            //================已登录状态下的购物车======================= redis:    user:cart:userId
+            TUser user = (TUser) o;
+            Long userId = user.getId();
+            return cartService.delAllCart(userId.toString());
+
+        }
 
         //============未登录状态==============
         if (uuid != null && !"".equals(uuid)) {
@@ -97,20 +112,95 @@ public class CartController {
         return ResultBean.error("当前用户没有购物车");
     }
 
+    /**
+     * 查询购物车
+     * @param uuid
+     * @param request
+     * @return
+     */
     @RequestMapping("query")
     @ResponseBody
     public ResultBean queryCart(@CookieValue(name = CookieConstant.USER_CART,required = false)String uuid,
-                                HttpServletRequest request,
-                                HttpServletResponse response){
+                                HttpServletRequest request){
 
-        //TODO  登录状态下
+        Object o = request.getAttribute("user");
+        if(o!=null){
+            //================已登录状态下的购物车======================= redis:    user:cart:userId
+            TUser user = (TUser) o;
+            Long userId = user.getId();
+            return cartService.queryProduct(userId.toString());
+
+        }
 
         //============未登录状态==============
         if (uuid != null && !"".equals(uuid)){
-            cartService.queryProduct(uuid);
+            return cartService.queryProduct(uuid);
         }
 
         return ResultBean.error("当前用户没有购物车");
+    }
+
+    /**
+     * 更改购物车信息
+     * @param uuid
+     * @param productId
+     * @param operator
+     * @param request
+     * @return
+     */
+    @RequestMapping("update/{productId}/{operator}")
+    @ResponseBody
+    public ResultBean updateCart(@CookieValue(name = CookieConstant.USER_CART,required = false)String uuid,
+                                 @PathVariable Long productId,
+                                 @PathVariable String operator,
+                                 HttpServletRequest request){
+
+        Object o = request.getAttribute("user");
+        if(o!=null){
+            //================已登录状态下的购物车======================= redis:    user:cart:userId
+            TUser user = (TUser) o;
+            Long userId = user.getId();
+            return cartService.updateCart(userId.toString(),productId,operator);
+
+        }
+
+        //============未登录状态==============
+        if (uuid != null && !"".equals(uuid)){
+            return cartService.updateCart(uuid,productId,operator);
+        }
+
+        return ResultBean.error("当前用户没有购物车");
+
+    }
+
+    /**
+     * 合并购物车
+     * @param uuid
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping("merge")
+    @ResponseBody
+    public ResultBean merge(@CookieValue(name = CookieConstant.USER_CART,required = false)String uuid,
+                            HttpServletRequest request,
+                            HttpServletResponse response){
+
+        //获取uuid和userId
+        TUser user = (TUser) request.getAttribute("user");
+        String userId = null;
+        if (user != null) {
+            userId = user.getId().toString();
+        }
+
+        //合并之后清空未登录时的购物车
+        Cookie cookie = new Cookie(CookieConstant.USER_CART,"");
+        cookie.setPath("/");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+
+        return cartService.merge(uuid,userId);
+
     }
 
 }
