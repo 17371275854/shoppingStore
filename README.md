@@ -7,3 +7,5 @@ store-shop-web-solr  port = 8766
 
 tlj 购物侧已使用端口 6761、6762
 
+支付暂写的8080，使用的免费natapp，等上线记得改阿里云
+
