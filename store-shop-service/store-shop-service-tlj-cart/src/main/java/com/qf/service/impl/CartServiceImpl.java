@@ -12,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class CartServiceImpl implements ICartService {
@@ -145,11 +143,6 @@ public class CartServiceImpl implements ICartService {
         for (CartBean cartBean : cartList) {
             if (cartBean.getProductId().longValue() == productId.longValue()) {
                 //更改商品数量
-//                if ("+".equals(operator)) {
-//                    cartBean.setCount(cartBean.getCount() + 1);
-//                }else if ("-".equals(operator)) {
-//                    cartBean.setCount(cartBean.getCount() - 1);
-//                }
                 cartBean.setCount(cartBean.getCount() + operator);
 
                 //更新商品的时间
@@ -166,7 +159,57 @@ public class CartServiceImpl implements ICartService {
 
     @Override
     public ResultBean merge(String uuid, String userId) {
-        return null;
+        /*
+            合并
+            1.未登录状态下没有购物车==》合并成功
+            2.未登录状态下有购物车，但已登录状态下没有购物车==》把未登录的变成已登录的
+            3.未登录状态下有购物车，但已登录状态下也有购物车，而且购物车中的商品有重复==》难点！
+         */
+        String noLoginRedisKey = StringUtil.getRedisKey(RedisConstant.USER_CART, uuid);
+        String loginRedisKey = StringUtil.getRedisKey(RedisConstant.USER_CART, userId);
+        Object noLogin = redisTemplate.opsForValue().get(noLoginRedisKey);//未登录时的购物车
+        Object Login = redisTemplate.opsForValue().get(loginRedisKey);//登录状态的购物车
+        if (noLogin == null) {
+            //1
+            return ResultBean.success("当前没有购物车，不需要合并");
+        }
+        if (Login == null) {
+            //2
+            redisTemplate.opsForValue().set(loginRedisKey,noLogin);
+            //合并成功，删除未登录购物车
+            redisTemplate.delete(noLoginRedisKey);
+            return ResultBean.success(noLogin,"合并成功");
+        }
+
+        //3
+        List<CartBean> noLoginCarts = (List<CartBean>) noLogin;
+        List<CartBean> loginCarts = (List<CartBean>) Login;
+        Map<Long, CartBean> map = new HashMap<>();
+        for (CartBean noLoginCart : noLoginCarts) {
+            //将未登录时购物车中的商品存入map中
+            map.put(noLoginCart.getProductId(),noLoginCart);
+        }
+        //存入以登录
+        for (CartBean loginCart : loginCarts) {
+            //先尝试获取，查看map中是否有当前商品
+            CartBean currentcartBean = map.get(loginCart.getProductId());
+            if (currentcartBean != null) {
+                //已存在
+                currentcartBean.setCount(currentcartBean.getCount() + loginCart.getCount());
+            }else {
+                //不存在
+                map.put(currentcartBean.getProductId(),loginCart);
+            }
+        }
+        //此时map中就是合并之后的购物车
+        //删除未登录购物车
+        redisTemplate.delete(noLoginRedisKey);
+        //把合并后的购物车存入redis
+        Collection<CartBean> values = map.values();
+        List<CartBean> newCarts = new ArrayList<>(values);
+        redisTemplate.opsForValue().set(loginRedisKey,newCarts);
+        return ResultBean.success(newCarts,"合并成功");
+
     }
 
 }
