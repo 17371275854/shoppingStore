@@ -23,6 +23,7 @@ public class OrderController {
 
     @RequestMapping("selectProduct")
     public TProduct selectByPrimarykey(long pid){
+        //创建订单Detail
         return orderService.selectByPrimarykey(pid);
     }
 
