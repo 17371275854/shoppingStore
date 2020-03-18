@@ -1,4 +1,4 @@
-package com.qf;
+package com.qf.bean;
 
 
 import java.io.Serializable;
