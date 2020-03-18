@@ -1,6 +1,6 @@
 package com.qf.controller;
 
-import com.qf.service.SolrService;
+import com.qf.service.impl.SolrServiceImpl;
 import com.qf.vo.ProductVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +12,7 @@ import java.util.List;
 public class SolrController {
 
     @Autowired
-    SolrService solrService;
+    SolrServiceImpl solrService;
 
     @RequestMapping("solr")
     public List<ProductVO> selectByKeyWord(String key_word, Integer page) {
