@@ -5,26 +5,27 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class TProduct implements Serializable {
 
-  private long pid;
+  private Long pid;
   private String pname;
-  private double price;
-  private double salePrice;
-  private long typeId;
-  private long status;
+  private BigDecimal price;
+  private BigDecimal salePrice;
+  private Long typeId;
+  private Short status;
   private String pimage;
-  private long flag;
+  private Short flag;
   private java.util.Date createTime;
   private java.util.Date updateTime;
-  private long createUser;
-  private long updateUser;
-  private long totalSales;
-  private long appraisal;
-  private long brandId;
+  private Long createUser;
+  private Long updateUser;
+  private Long totalSales;
+  private Long appraisal;
+  private Long brandId;
 
 }
