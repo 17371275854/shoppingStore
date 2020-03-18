@@ -1,4 +1,4 @@
-package com.qf.bean;
+package com.qf.entity;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
 package com.qf;
 
-import com.qf.bean.TProduct;
+import com.qf.entity.TProduct;
 import com.qf.mapper.ProductMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
