@@ -1,4 +1,4 @@
-package com.qf;
+package com.qf.mapper;
 
 
 import tk.mybatis.mapper.common.Mapper;
