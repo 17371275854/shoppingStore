@@ -1,6 +1,8 @@
 package com.qf;
 
+import com.qf.dto.ResultBean;
 import com.qf.mapper.SolrMapper;
+import com.qf.service.ISolrService;
 import com.qf.vo.SolrProductVO;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrServerException;
@@ -61,6 +63,14 @@ public class StoreShopServiceTljSolrApplicationTests {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Autowired
+    private ISolrService solrService;
+    @Test
+    public void Test02(){
+        ResultBean resultBean = solrService.seek("手机", 1);
+        System.out.println(resultBean);
     }
 
     @Test

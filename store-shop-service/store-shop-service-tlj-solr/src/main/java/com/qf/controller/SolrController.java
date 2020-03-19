@@ -14,7 +14,7 @@ public class SolrController {
     private ISolrService solrService;
 
     @RequestMapping("seek")
-    public ResultBean seek(String keyword,Long page){
+    public ResultBean seek(String keyword,Integer page){
         ResultBean resultBean = solrService.seek(keyword, page);
         return resultBean;
     }
