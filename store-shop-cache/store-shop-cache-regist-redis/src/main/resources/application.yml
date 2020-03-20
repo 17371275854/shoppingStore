@@ -1,0 +1,18 @@
+
+spring:
+  application:
+    name: store-shop-cache-regist-redis
+  redis:
+    host: 47.111.237.99
+    port: 6380
+    password: 123456
+
+
+server:
+  port: 8787
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+

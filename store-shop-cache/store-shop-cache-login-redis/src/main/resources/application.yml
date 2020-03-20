@@ -1,0 +1,24 @@
+
+spring:
+  application:
+    name: store-shop-cache-login-redis
+  redis:
+    host: 47.111.237.99
+    port: 6380
+    password: 123456
+    database: 1
+    lettuce:
+      pool:
+        max-idle: 30
+        min-idle: 10
+        max-active: 30
+        max-wait: 10000
+
+
+server:
+  port: 8789
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

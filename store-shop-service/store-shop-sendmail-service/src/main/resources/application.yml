@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: store-shop-sendmail-service
+  mail:
+    host: smtp.qq.com
+    username: 3478787072@qq.com
+    password: dqbzhjtwhmxqdaag
+    default-encoding: utf-8
+
+
+server:
+  port: 8762
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
+activeServerUrl: http://localhost:8762/email/active/account/

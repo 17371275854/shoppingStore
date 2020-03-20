@@ -15,18 +15,31 @@ public class RegistController {
     private IRegistService registService;
 
     @RequestMapping("regist")
-    public ResultBean regist(@RequestParam int registNum,@RequestParam String addr,@RequestParam String password){
+    @ResponseBody
+    @CrossOrigin
+    public ResultBean regist(@RequestParam int registNum,@RequestParam String addr,@RequestParam String password,@RequestParam(required = false) String code){
 
-        ResultBean resultBean = registService.regist(registNum, addr, password);
+        ResultBean resultBean = registService.regist(registNum, addr, password,code);
         return resultBean;
     }
 
     @RequestMapping("active/account/{uuid}")
+    @CrossOrigin
     @ResponseBody
     public ResultBean activeAccount(@PathVariable String uuid, Model model){
 
         ResultBean resultBean = registService.active(uuid);
         model.addAttribute("resultBean",resultBean);
+        return resultBean;
+    }
+
+
+    @RequestMapping("sms/{phoneNum}")
+    @ResponseBody
+    @CrossOrigin
+    public ResultBean sendSMS(@PathVariable String phoneNum){
+
+        ResultBean resultBean = registService.sendSMS(phoneNum);
         return resultBean;
     }
 

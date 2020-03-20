@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: store-shop-web-tlj-solr
+
+server:
+  port: 6763
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 60
