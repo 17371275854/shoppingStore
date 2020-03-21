@@ -1,5 +1,6 @@
 package com.qf.controller;
 
+import com.qf.test.entity.TUser;
 import com.qf.util.DataCarrier;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,7 @@ public class OrderController {
 //            return new DataCarrier(1,"请先登陆！！！", null);
 //        }
         String uri = "http://STORE-SHOP-SERVICE-ORDER/createOrder";
+        //********测试数据*****->
         Map<Long, Long> map = new HashMap();
         map.put(1L, 1L);
         map.put(3L, 1L);
@@ -47,15 +49,19 @@ public class OrderController {
         map.put(7L, 1L);
         Map m = new HashMap();
         m.put("my1", map);
-        m.put("my2", "我是陈佳");
-        JSONArray jsonArray = new JSONArray();
+        TUser tUser = new TUser();
+        tUser.setUname("xiaoming");
+        tUser.setPassword("$2a$10$4fplFu3FaW5XP73a94gYeuUXuh9ZMRzV7649L0avvZNdTlnPzK3VS");
+        tUser.setEmail("123456@qq.com");
+        m.put("my2", tUser);
 //        restTemplate.
+        //*********************<-
         HttpHeaders httpHeaders = new HttpHeaders();
         MediaType mediaType = MediaType.parseMediaType("application/json;charset=UTF-8");
         httpHeaders.setContentType(mediaType);
         httpHeaders.add("Accept", MediaType.APPLICATION_JSON.toString());
         HttpEntity httpEntity = new HttpEntity(m,httpHeaders);
         ResponseEntity<String> stringResponseEntity = restTemplate.postForEntity(uri, httpEntity, String.class);
-        return null;
+        return new DataCarrier(0, "已成功创建订单", stringResponseEntity.getBody());
     }
 }
