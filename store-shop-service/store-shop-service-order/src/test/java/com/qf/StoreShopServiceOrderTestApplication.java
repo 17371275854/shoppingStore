@@ -20,6 +20,7 @@ import java.util.Map;
 public class StoreShopServiceOrderTestApplication {
     @Autowired
     ProductMapper productMapper;
+
     @Test
     public void content() {
         Map<Long, Long> map = new HashMap();
