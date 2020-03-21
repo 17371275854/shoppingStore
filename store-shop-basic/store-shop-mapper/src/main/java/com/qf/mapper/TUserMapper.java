@@ -1,7 +1,7 @@
 package com.qf.mapper;
 
 
-import tk.mybatis.mapper.common.Mapper;
+import com.qf.entity.TUser;
 
 public interface TUserMapper {
     int deleteByPrimaryKey(Long uid);
