@@ -41,7 +41,7 @@ public class CartServiceImpl implements ICartService {
     public ResultBean addProduct(String uuid, Long productId, int count) {
 
         //用UUID封装购物车存放在Redis中的键
-        String redisCartKey = StringUtil.getRedisKey(RedisConstant.USER_CART,uuid);
+        String redisCartKey = StringUtil.getRedisKey(RedisConstant.USER_CART_PRE,uuid);
         //获取用户购物车
         Object o = redisTemplate.opsForValue().get(redisCartKey);
           if (o == null){
@@ -89,7 +89,7 @@ public class CartServiceImpl implements ICartService {
     public ResultBean delAllCart(String uuid) {
 
         //删除Redis中的购物车
-        String redisKey = StringUtil.getRedisKey(RedisConstant.USER_CART, uuid);
+        String redisKey = StringUtil.getRedisKey(RedisConstant.USER_CART_PRE, uuid);
         redisTemplate.delete(redisKey);
         return ResultBean.success("清空购物车成功");
     }
@@ -98,7 +98,7 @@ public class CartServiceImpl implements ICartService {
     public ResultBean queryCart(String uuid) {
 
         //用UUID封装购物车存放在Redis中的键
-        String redisCartKey = StringUtil.getRedisKey(RedisConstant.USER_CART,uuid);
+        String redisCartKey = StringUtil.getRedisKey(RedisConstant.USER_CART_PRE,uuid);
         //获取用户购物车
         Object o = redisTemplate.opsForValue().get(redisCartKey);
         if (o == null) {
@@ -133,7 +133,7 @@ public class CartServiceImpl implements ICartService {
     public ResultBean updateCart(String uuid, Long productId, int operator) {
 
         //用UUID封装购物车存放在Redis中的键
-        String redisCartKey = StringUtil.getRedisKey(RedisConstant.USER_CART,uuid);
+        String redisCartKey = StringUtil.getRedisKey(RedisConstant.USER_CART_PRE,uuid);
         //获取用户购物车
         Object o = redisTemplate.opsForValue().get(redisCartKey);
 
@@ -165,8 +165,8 @@ public class CartServiceImpl implements ICartService {
             2.未登录状态下有购物车，但已登录状态下没有购物车==》把未登录的变成已登录的
             3.未登录状态下有购物车，但已登录状态下也有购物车，而且购物车中的商品有重复==》难点！
          */
-        String noLoginRedisKey = StringUtil.getRedisKey(RedisConstant.USER_CART, uuid);
-        String loginRedisKey = StringUtil.getRedisKey(RedisConstant.USER_CART, userId);
+        String noLoginRedisKey = StringUtil.getRedisKey(RedisConstant.USER_CART_PRE, uuid);
+        String loginRedisKey = StringUtil.getRedisKey(RedisConstant.USER_CART_PRE, userId);
         Object noLogin = redisTemplate.opsForValue().get(noLoginRedisKey);//未登录时的购物车
         Object Login = redisTemplate.opsForValue().get(loginRedisKey);//登录状态的购物车
         if (noLogin == null) {
