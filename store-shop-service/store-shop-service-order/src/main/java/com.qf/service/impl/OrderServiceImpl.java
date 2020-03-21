@@ -1,9 +1,9 @@
 package com.qf.service.impl;
 
-import com.qf.bean.OrderDetail;
-import com.qf.bean.OrderMaster;
-import com.qf.bean.TProduct;
-import com.qf.bean.TUser;
+import com.qf.entity.OrderDetail;
+import com.qf.entity.OrderMaster;
+import com.qf.entity.TProduct;
+import com.qf.entity.TUser;
 import com.qf.mapper.OrderDetailMapper;
 import com.qf.mapper.OrderMasterMapper;
 import com.qf.mapper.ProductMapper;
