@@ -28,3 +28,6 @@ mybatis:
     map-underscore-to-camel-case: true
   # 3.3 配置别名.
   type-aliases-package: com.qf.entity
+logging:
+  level:
+    com.qf.mapper: trace
