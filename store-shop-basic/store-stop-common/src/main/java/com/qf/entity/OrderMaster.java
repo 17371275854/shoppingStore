@@ -28,6 +28,7 @@ public class OrderMaster implements Serializable {
   private Short payStatus;         //支付状态, 默认0 未支付
   private java.sql.Timestamp createTime;
   private java.sql.Timestamp updateTime;
+  private Long userId;
   {
     orderId = RandomStringUtils.randomAlphanumeric(4) + new Date().getTime(); //生成4位随机字符串 + 当前时间毫秒值
   }

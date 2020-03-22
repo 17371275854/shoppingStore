@@ -4,11 +4,12 @@ import com.qf.entity.OrderDetail;
 import com.qf.entity.OrderMaster;
 import com.qf.entity.TProduct;
 import com.qf.entity.TUser;
+import com.qf.exception.OrderException;
 import com.qf.mapper.OrderDetailMapper;
 import com.qf.mapper.OrderMasterMapper;
 import com.qf.mapper.ProductMapper;
 import com.qf.service.OrderService;
-import com.qf.vo.DataCarrier;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,7 +35,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public DataCarrier createOrder(Map orderInfo, TUser user) {
+    public String createOrder(Map orderInfo) {
         //TODO 转换成功Redis
         Example example = new Example(TProduct.class);
         Example.Criteria criteria = example.createCriteria();
@@ -46,32 +47,40 @@ public class OrderServiceImpl implements OrderService {
 //        redisTemplate.opsForValue().get("s");
         /**添加订单**/
         OrderMaster orderMaster = new OrderMaster();
+        orderMaster.setUserId(1L);
         int i = insertOrderMaster(orderInfo, products, tProducts, orderMaster);
         int j = insertOrderDetail(tProducts, orderMaster.getOrderId(), products);
         if( (i + j) != 2) {
-//            throw
+            throw new OrderException("创建订单失败");
         }
-        return new DataCarrier(0, "已成功创建订单", null);
+        return "已成功创建订单";
     }
 
     private int insertOrderMaster(Map orderInfo, Map products, List<TProduct> tProducts, OrderMaster orderMaster) {
-        String receiver = orderInfo.get("receiver").toString();
-        String phone = orderInfo.get("phone").toString();
-        String buyerAddress = orderInfo.get("buyerAddress").toString();
-        orderMaster.setBuyerName(receiver);
-        orderMaster.setBuyerPhone(phone);
-        orderMaster.setBuyerAddress(buyerAddress);
-        BigDecimal orderAmount = new BigDecimal(0);
-        for (TProduct tProduct : tProducts) {
-            Long pid = tProduct.getPid();
-            long quantity = Long.parseLong(products.get(pid).toString());
-            orderAmount.add(tProduct.getPrice().multiply(new BigDecimal(quantity)));
+        int i = 0;
+        try {
+            String receiver = orderInfo.get("receiver").toString();
+            String phone = orderInfo.get("phone").toString();
+            String buyerAddress = orderInfo.get("buyerAddress").toString();
+            orderMaster.setBuyerName(receiver);
+            orderMaster.setBuyerPhone(phone);
+            orderMaster.setBuyerAddress(buyerAddress);
+            BigDecimal orderAmount = new BigDecimal(0);
+            for (TProduct tProduct : tProducts) {
+                String pid = tProduct.getPid().toString();
+                long quantity = Long.parseLong(products.get(pid).toString());
+                orderAmount = orderAmount.add(tProduct.getPrice().multiply(new BigDecimal(quantity)));
+            }
+            orderMaster.setOrderAmount(orderAmount);
+            i = orderMasterMapper.insertSelective(orderMaster);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
         }
-        orderMaster.setOrderAmount(orderAmount);
-        return orderMasterMapper.insertSelective(orderMaster);
+        return i;
     }
 
     private int insertOrderDetail(List<TProduct> tProducts, String orderId, Map products) {
+        int j = 1;
         try {
             for (TProduct tProduct : tProducts) {
                 OrderDetail orderDetail = new OrderDetail();
@@ -79,15 +88,16 @@ public class OrderServiceImpl implements OrderService {
                 orderDetail.setProductId(tProduct.getPid());
                 orderDetail.setProductName(tProduct.getPname());
                 orderDetail.setProductPrice(tProduct.getPrice());
-                Long productQuantity = Long.parseLong(products.get(tProduct.getPid()).toString());
+                Long productQuantity = Long.parseLong(products.get(tProduct.getPid().toString()).toString());
                 orderDetail.setProductQuantity(productQuantity);
-                orderDetailMapper.insertSelective(orderDetail);
+                if(orderDetailMapper.insertSelective(orderDetail) == 0) {
+                    j = 0;
+                }
             }
-            return 1;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return 0;
+        return j;
     }
 }
 //    private String detailId ;

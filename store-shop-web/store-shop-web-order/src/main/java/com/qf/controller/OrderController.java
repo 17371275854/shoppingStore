@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
@@ -42,18 +43,21 @@ public class OrderController {
 //        }
         String uri = "http://STORE-SHOP-SERVICE-ORDER/createOrder";
         //********测试数据*****->
-        Map<Long, Long> map = new HashMap();
+        Map<Long, Object> map = new HashMap();
         map.put(1L, 1L);
         map.put(3L, 1L);
         map.put(5L, 1L);
         map.put(7L, 1L);
         Map m = new HashMap();
-        m.put("my1", map);
+        m.put("products", map);
+        m.put("receiver","xiaoming");
+        m.put("phone","123456");
+        m.put("buyerAddress", "秦皇岛");
         TUser tUser = new TUser();
         tUser.setUname("xiaoming");
         tUser.setPassword("$2a$10$4fplFu3FaW5XP73a94gYeuUXuh9ZMRzV7649L0avvZNdTlnPzK3VS");
         tUser.setEmail("123456@qq.com");
-        m.put("my2", tUser);
+        m.put("user", tUser);
 //        restTemplate.
         //*********************<-
         HttpHeaders httpHeaders = new HttpHeaders();
@@ -61,7 +65,13 @@ public class OrderController {
         httpHeaders.setContentType(mediaType);
         httpHeaders.add("Accept", MediaType.APPLICATION_JSON.toString());
         HttpEntity httpEntity = new HttpEntity(m,httpHeaders);
-        ResponseEntity<String> stringResponseEntity = restTemplate.postForEntity(uri, httpEntity, String.class);
+        ResponseEntity<String> stringResponseEntity = null;
+        try {
+            stringResponseEntity = restTemplate.postForEntity(uri, httpEntity, String.class);
+        } catch (RestClientException e) {
+            //TODO  记录日志
+            return new DataCarrier(0, "创建订单失败", null);
+        }
         return new DataCarrier(0, "已成功创建订单", stringResponseEntity.getBody());
     }
 }

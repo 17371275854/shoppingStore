@@ -1,6 +1,8 @@
 package com.qf;
 
+import com.qf.entity.OrderMaster;
 import com.qf.entity.TProduct;
+import com.qf.mapper.OrderMasterMapper;
 import com.qf.mapper.ProductMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,6 +32,14 @@ public class StoreShopServiceOrderTestApplication {
         Example.Criteria criteria = example.createCriteria();
         criteria.andIn("pid", map.keySet());
         List<TProduct> tProducts = productMapper.selectByExample(example);
+        System.out.println();
+    }
+
+    @Autowired
+    OrderMasterMapper orderMasterMapper;
+    @Test
+    public void test() {
+        List<OrderMaster> orderMasters = orderMasterMapper.selectAll();
         System.out.println();
     }
 }
