@@ -22,9 +22,8 @@ public class CartController {
     @Autowired(required = false)
     private CartService cartService;
 
-    @RequestMapping("/shopcart")
+    @RequestMapping("ShopCart")
     public String shopcart(){
-        System.out.println("!!!");
         return "shopcart";
     }
 
