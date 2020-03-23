@@ -4,12 +4,15 @@ import com.qf.service.SolrService;
 import com.qf.vo.ProductVO;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
+import org.apache.solr.common.SolrInputDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,4 +57,25 @@ public class SolrServiceImpl implements SolrService {
             return null;
         }
     }
+
+    public int insertOne(ProductVO productVO) {
+        SolrInputDocument doc = new SolrInputDocument();
+        doc.setField("id",productVO.getPid());
+        doc.setField("pname",productVO.getPname());
+        doc.setField("salePrice",productVO.getSalePrice().floatValue());
+        doc.setField("cname",productVO.getCname());
+        doc.setField("totalSales",productVO.getTotalSales());
+        doc.setField("appraisal",productVO.getAppraisal());
+        //将doc对象存入到集合中
+        try {
+            solrClient.add(doc) ;
+            return 1;
+        } catch (SolrServerException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 }

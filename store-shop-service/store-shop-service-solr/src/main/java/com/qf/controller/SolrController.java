@@ -20,4 +20,7 @@ public class SolrController {
         return productVOS;
     }
 
+    public int insertOne(ProductVO productVO) {
+        return solrService.insertOne(productVO);
+    }
 }

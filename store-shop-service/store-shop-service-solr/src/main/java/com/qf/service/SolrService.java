@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface SolrService {
     List<ProductVO> selectByKeyWord(String key_word, Integer page);
+    int insertOne(ProductVO productVO);
 }
