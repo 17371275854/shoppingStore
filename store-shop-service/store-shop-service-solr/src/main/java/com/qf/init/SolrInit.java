@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 初始化solr库，将solr库与数据库同步
+ */
 public class SolrInit {
 
     @Autowired
