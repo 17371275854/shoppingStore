@@ -58,6 +58,7 @@ public class SolrServiceImpl implements SolrService {
         }
     }
 
+    @Override
     public int insertOne(ProductVO productVO) {
         SolrInputDocument doc = new SolrInputDocument();
         doc.setField("id",productVO.getPid());
