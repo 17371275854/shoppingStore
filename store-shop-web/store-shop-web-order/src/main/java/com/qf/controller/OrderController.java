@@ -58,7 +58,6 @@ public class OrderController {
         tUser.setPassword("$2a$10$4fplFu3FaW5XP73a94gYeuUXuh9ZMRzV7649L0avvZNdTlnPzK3VS");
         tUser.setEmail("123456@qq.com");
         m.put("user", tUser);
-//        restTemplate.
         //*********************<-
         HttpHeaders httpHeaders = new HttpHeaders();
         MediaType mediaType = MediaType.parseMediaType("application/json;charset=UTF-8");
