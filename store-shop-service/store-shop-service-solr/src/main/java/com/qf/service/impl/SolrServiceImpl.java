@@ -70,6 +70,7 @@ public class SolrServiceImpl implements SolrService {
         //将doc对象存入到集合中
         try {
             solrClient.add(doc) ;
+            solrClient.commit();
             return 1;
         } catch (SolrServerException e) {
             e.printStackTrace();

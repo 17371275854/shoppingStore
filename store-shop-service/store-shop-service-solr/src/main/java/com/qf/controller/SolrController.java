@@ -21,6 +21,7 @@ public class SolrController {
         return productVOS;
     }
 
+    @RequestMapping("insert")
     public int insertOne(ProductVO productVO) {
         //测试数据
         ProductVO productVO1Test = new ProductVO();
@@ -36,6 +37,6 @@ public class SolrController {
 //        doc.setField("cname",productVO.getCname());
 //        doc.setField("totalSales",productVO.getTotalSales());
 //        doc.setField("appraisal",productVO.getAppraisal());
-        return solrService.insertOne(productVO);
+        return solrService.insertOne(productVO1Test);
     }
 }
